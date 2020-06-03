@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>{{ title }}</title>
+    <title>{{ category.title }}</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +28,7 @@
 </nav>
 
 <div class="container mt-3">
-    <h1>{{ title }}</h1>
+    <h1>{{ category.title }}</h1>
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="media">
                                 {% if item.photo %}
-                                    <img src="{{ item.photo.url }}" alt="" width="250" class="mr-3">
+                                    <img src="/{{ item.photo.url }}" alt="" width="250" class="mr-3">
                                 {% endif %}
                                 <div class="media-body">
                                     <h5 class="card-title">{{ item.title }}</h5>
