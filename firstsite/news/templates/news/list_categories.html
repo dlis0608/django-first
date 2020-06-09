@@ -2,6 +2,8 @@
     {% for cat in categories %}
         <a href="{{ cat.get_absolute_url }}" class="list-group-item list-group-item-action">
             {{ cat.title }}
+            <span class="badge badge-secondary badge-pill">{{ cat.cnt }}</span>
         </a>
+
     {% endfor %}
 </div>

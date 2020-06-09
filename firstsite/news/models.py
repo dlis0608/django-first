@@ -10,6 +10,7 @@ class News(models.Model):
     photo = models.ImageField(blank=True, upload_to='photos/%Y/%m/', verbose_name='Фото')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
+    views = models.IntegerField(default=0)
 
     def get_absolute_url(self):
         return reverse_lazy('view_news', kwargs={'pk': self.pk})
@@ -20,7 +21,7 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
-        ordering = ['created_at', 'title']
+        ordering = ['-created_at', 'title']
 
 
 class Category(models.Model):
