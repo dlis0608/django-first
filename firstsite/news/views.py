@@ -1,14 +1,32 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import News, Category
-from .forms import NewsForm, UserRegisterForm, UserLoginForm
+from .forms import NewsForm, UserRegisterForm, UserLoginForm, ContactForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .utils import MyMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
 from django.core.paginator import Paginator
-
+from django.core.mail import send_mail
 from django.contrib import messages
+
+
+def contact_form(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            mail = send_mail(form.cleaned_data['subject'], form.cleaned_data['content'], 'webkoshechka@yandex.ru',
+                             ('dlis0608@gmail.com',), fail_silently=True)
+            if mail:
+                messages.success(request, 'Письмо отправлено')
+                return redirect('home')
+            else:
+                messages.error(request, 'Ошибка отправки')
+        else:
+            messages.error(request, 'Ошибка заполнения')
+    else:
+        form = ContactForm()
+    return render(request, 'news/test.html', {'form': form})
 
 
 def register(request):
