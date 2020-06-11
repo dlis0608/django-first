@@ -13,4 +13,5 @@ urlpatterns = [
     path('news/login/', user_login, name='login'),
     path('news/logout/', user_logout, name='logout'),
     path('test/', contact_form, name='contact'),
+
 ]
