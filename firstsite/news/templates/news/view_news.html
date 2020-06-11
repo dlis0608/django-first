@@ -25,6 +25,8 @@
             </div>
             <div class="card-footer text-muted">
                 {{ news_item.created_at|date:'d-m-Y, H:i' }}
+                <br>
+                Просмотров: {{ news_item.views }}
             </div>
         </div>
     </div>
