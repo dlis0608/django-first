@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'news.apps.NewsConfig',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'captcha'
 ]
 
 MIDDLEWARE = [

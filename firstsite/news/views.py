@@ -26,7 +26,7 @@ def contact_form(request):
             messages.error(request, 'Ошибка заполнения')
     else:
         form = ContactForm()
-    return render(request, 'news/test.html', {'form': form})
+    return render(request, 'news/contact.html', {'form': form, })
 
 
 def register(request):
