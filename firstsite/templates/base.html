@@ -16,11 +16,11 @@
 
 <div class="container mt-3">
     <div class="row">
-        {% cache 30 sidebar %}
+
         <div class="col-md-3">
             {% block sidebar %}{% endblock %}
         </div>
-        {% endcache %}
+
         <div class="col-md-9">
             {% if messages %}
                 {% for message in messages %}
